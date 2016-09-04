@@ -5,16 +5,14 @@ import java.io.*;
  */
 public class HW1 {
     public static void main(String[] args) throws IOException, ParseException {
-        Axioms.define();
-
         for (int testNum = 1; testNum <= 6; testNum ++) {
             if (testNum != 2) {
-                ProofChecker proofChecker = new ProofChecker(Axioms.axioms);
+                ProofChecker proofChecker = new ProofChecker();
                 solve(proofChecker, "./tests/hw1/", "good" + testNum);
             }
         }
         for (int testNum = 1; testNum <= 6; testNum ++) {
-                ProofChecker proofChecker = new ProofChecker(Axioms.axioms);
+                ProofChecker proofChecker = new ProofChecker();
                 solve(proofChecker, "./tests/hw1/", "wrong" + testNum);
         }
     }

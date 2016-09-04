@@ -12,9 +12,9 @@ public class ProofChecker {
     List<Integer> MPSnd = new ArrayList<>();
     List<ExprNode> MPExpr = new ArrayList<>();
 
-    ProofChecker(List<String> axioms) throws ParseException {
+    ProofChecker() throws ParseException {
         ExprParser exprParser = new ExprParser();
-        for (String a : axioms) {
+        for (String a : Axioms.axioms) {
             this.axioms.add(exprParser.parse(a));
         }
 
@@ -22,7 +22,6 @@ public class ProofChecker {
         for (ExprNode axiom : this.axioms) {
             axiom.num = num;
             num++;
-
   /*          if (expr == null) {
                 System.out.println("!!!!!!!!!!! INVALID AXIOM EXPRESSION: number " + (-num));
             } else {

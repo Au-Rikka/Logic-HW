@@ -10,17 +10,15 @@ public class HW2 {
     static ExprNode a, b;
 
     public static void main(String[] args) throws IOException, ParseException {
-        Axioms.define();
-
         for (int testNum = 0; testNum < 3; testNum ++) {
-            ProofChecker proofChecker = new ProofChecker(Axioms.axioms);
+            ProofChecker proofChecker = new ProofChecker();
             if (testNum == 0) {
                 solve(proofChecker, "./tests/hw2/", "contra");
-                proofChecker = new ProofChecker(Axioms.axioms);
+                proofChecker = new ProofChecker();
                 check(proofChecker, "./tests/hw2/", "contra");
             } else {
                 solve(proofChecker, "./tests/hw2/", "contra" + testNum);
-                proofChecker = new ProofChecker(Axioms.axioms);
+                proofChecker = new ProofChecker();
                 check(proofChecker, "./tests/hw2/", "contra" + testNum);
             }
         }

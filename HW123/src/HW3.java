@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
@@ -7,13 +8,13 @@ import java.util.Map;
 public class HW3 {
 
     public static void main(String[] args) throws IOException, ParseException {
-        Axioms.define();
+        ProofChecker proofChecker;
 
-        ProofChecker proofChecker = new ProofChecker(Axioms.axioms);
-        solve(proofChecker, "./tests/hw3/", "false" + 1);
+//        ProofChecker proofChecker = new ProofChecker(Axioms.axioms);
+//        solve(proofChecker, "./tests/hw3/", "false" + 1);
 
         for (int testNum = 1; testNum <= 7; testNum++) {
-            proofChecker = new ProofChecker(Axioms.axioms);
+            proofChecker = new ProofChecker();
             solve(proofChecker, "./tests/hw3/", "true" + testNum);
         }
     }
@@ -34,8 +35,11 @@ public class HW3 {
                 ExprNode expr = exprParser.parse(str);
 
                 if (checkTrue(writer, proofChecker, expr)) {
-                    //TODO: построить доказательство
                     writer.write("всегда правда");
+                    ProofBuilder pb = new ProofBuilder();
+                    ArrayList<ExprNode> proof = pb.buildProof(expr);
+
+                    //TODO: построить доказательство
                 }
 
             } catch (IOException e) {
