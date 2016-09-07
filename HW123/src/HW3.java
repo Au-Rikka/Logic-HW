@@ -70,6 +70,7 @@ public class HW3 {
                 } else {
                     writer.write(", " + key + "=" + val);
                 }
+                i++;
             }
 
             return false;
